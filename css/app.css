@@ -1,0 +1,20 @@
+/* Author:
+
+*/
+
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('../webfonts/BebasNeue-webfont.eot');
+  src: url('../webfonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../webfonts/BebasNeue-webfont.woff') format('woff'),
+  url('../webfonts/BebasNeue-webfont.ttf') format('truetype'),
+  url('../webfonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'BebasNeue';
+  margin: 0;
+  padding: 0;
+}
