@@ -271,7 +271,7 @@ Crafty.c('Player', {
         w: 8,
         h: 50,
         x: _this._x,
-        y: 588,
+        y: 568,
         z: 999
       });
 
@@ -288,8 +288,12 @@ Crafty.c('Player', {
       .gravity("Platform")
       .reel("stand", 30, 0, 0, 1)
       .reel("walk", 360, 3, 0, 10)
-      .reel("jumpStart", 90, [[0, 1]])
-      .reel("jump", 30, [[1, 1]])
+      .reel("jumpStart", 90, [
+        [0, 1]
+      ])
+      .reel("jump", 30, [
+        [1, 1]
+      ])
       .reel("trap", 120, 0, 2, 2)
       .reel("fly", 30, 0, 3, 2)
       .reel("change", 30, 0, 4, 2)
@@ -299,7 +303,7 @@ Crafty.c('Player', {
         if (world.accuracyText) world.accuracyText.destroy();
       })
       .bind('AnimationEnd', function(animation) {
-        if(animation.id === 'jumpStart') {
+        if (animation.id === 'jumpStart') {
           _this.pauseAnimation().animate("jump", -1);
         }
       })
@@ -402,7 +406,7 @@ Crafty.c('Player', {
             // Reset idleTimer
             _this.idleTime = (new Date()).getTime();
 
-            if(_this._falling) {
+            if (_this._falling) {
               if (!_this.isPlaying("jump") && !_this.isPlaying("jumpStart")) {
                 _this.pauseAnimation().animate("jumpStart");
               }
@@ -447,7 +451,7 @@ Crafty.c('Player', {
           }
         }
 
-        if(_this.trapping) {
+        if (_this.trapping) {
           if (!_this.isPlaying("trap")) {
             _this.pauseAnimation().animate("trap", -1);
           }
@@ -612,7 +616,7 @@ Crafty.c('Ground', {
 Crafty.c('JumpButton', {
   init: function() {
     this.addComponent('Button, Image')
-      .image("images/menu/jumpButton.png")
+      .image("images/gui/jumpButton.png")
       .button(function() {
         player.idleTime = (new Date()).getTime();
         if (player.solved) {
@@ -631,7 +635,7 @@ Crafty.c('JumpButton', {
 Crafty.c('ExitButton', {
   init: function() {
     this.addComponent('Button, Image')
-      .image("images/menu/exitButton.png")
+      .image("images/gui/closeButton.png")
       .button(function() {
         location.href = '/tulos-4';
       });
@@ -641,7 +645,7 @@ Crafty.c('ExitButton', {
 Crafty.c('SolveButton', {
   init: function() {
     this.addComponent('Button, Image')
-      .image("images/menu/solveButton.png")
+      .image("images/gui/solveButton.png")
       .button(function() {
         if (!player.solved) {
           player.solveLevel();
@@ -883,15 +887,6 @@ function createTrapConsole(tb, qc) {
   return tc;
 }
 
-// Crafty.c('God', {
-//   init: function() {
-//     this.addComponent('2D, Canvas, SpriteAnimation, godSprite')
-//       .reel("init", 30, [
-//         [0, 0]
-//       ]);
-//   }
-// });
-
 Crafty.c('TipButton', {
   triggered: false,
   init: function() {
@@ -1044,7 +1039,7 @@ Crafty.c('QuestionDecimal', {
     this.addComponent("2D, DOM, ConsoleText, QuestionDecimal")
       .attr({
         x: 120,
-        y: 654,
+        y: 634,
         z: 902,
         w: 485,
         h: 100
@@ -1060,7 +1055,7 @@ Crafty.c('QuestionContainer', {
         h: 100,
         z: 902,
         x: 120,
-        y: 653
+        y: 633
       });
   }
 });
@@ -1073,7 +1068,7 @@ Crafty.c('QuestionFraction', {
         h: 100,
         z: 902,
         x: 120,
-        y: 653
+        y: 633
       });
   },
   updateFraction: function(question) {
@@ -1333,7 +1328,7 @@ Crafty.c('TrapFraction', {
         h: 100,
         z: 902,
         x: 730,
-        y: 653
+        y: 633
       });
   },
   updateFraction: function(trap) {
@@ -1380,7 +1375,7 @@ Crafty.c('TrapDecimal', {
     this.addComponent("2D, DOM, Text, TrapDecimal")
       .attr({
         x: 735,
-        y: 654,
+        y: 634,
         z: 902,
         w: 230,
         h: 100

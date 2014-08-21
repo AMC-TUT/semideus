@@ -6,7 +6,7 @@ Crafty.scene("Loading", function() {
 
   Crafty.load(
     [
-      "images/menu/bg.png"
+      "images/splash.jpg"
     ],
     function() {
       Crafty.scene("Lobby");
@@ -32,7 +32,7 @@ Crafty.scene("Lobby", function() {
     Crafty.scene("Game");
   }, 3000);
 
-  /*
+  /* Lobby stuff here
   var fontStyleMenu = {
     font: 'main',
     size: 20,
@@ -68,7 +68,7 @@ Crafty.scene("Lobby", function() {
     });
 
   var startButton = Crafty.e('Button, Image')
-    .image("images/menu/buttonStart.png")
+    .image("images/gui/buttonStart.png")
     .button(function() {
       Crafty.scene("Game");
     })
@@ -78,7 +78,7 @@ Crafty.scene("Lobby", function() {
     });
 
   var nextLevelButton = Crafty.e('Button, Image')
-    .image("images/menu/buttonForward.png")
+    .image("images/gui/buttonForward.png")
     .button(function() {})
     .attr({
       x: 830,
@@ -86,7 +86,7 @@ Crafty.scene("Lobby", function() {
     });
 
   var previousLevelButton = Crafty.e('Button, Image')
-    .image("images/menu/buttonForward.png")
+    .image("images/gui/buttonForward.png")
     .button(function() {})
     .attr({
       x: 90,
@@ -237,7 +237,7 @@ Crafty.scene("Game", function() {
       z: 9999
     });
 
-  var tipBtn = Crafty.e('TipButton')
+  var tipBtn = Crafty.e('TipButton') // TODO siirrä vuoheen
     .attr({
       x: (1024 / 2) - (77 / 2),
       y: 20,
@@ -378,14 +378,14 @@ Crafty.scene("Game", function() {
       //   });
       // level.attach(bg);
 
-      var exitButton = Crafty.e('ExitButton')
+      var closeButton = Crafty.e('ExitButton')
         .attr({
           x: (TULOS.canvas.width / 2) - 92,
           y: floorY - 400,
           z: 9999
         });
 
-      level.attach(exitButton);
+      level.attach(closeButton);
 
     }
 
@@ -394,7 +394,7 @@ Crafty.scene("Game", function() {
     floorY -= 340;
   });
 
-  world.ent.move('s', -(world.firstFloor - 230));
+  world.ent.move('s', -(world.firstFloor - 220));
 
   setTimeout(function() {
     player = Crafty.e('Player').attr({
